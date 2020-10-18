@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import ProductTable from './ProductTable/ProductTable'
-import SearchBar from './SearchBar/SearchBar'
+import ProductTable from './ProductTable/ProductTable';
+import SearchBar from './SearchBar/SearchBar';
+import orderBy from "lodash/orderBy";
 
 function App() {
   const [searchResults, setSearchResults] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedBrand, setSelectedBrand] = useState("")
   const [selectedProductNumber, setSelectedProductNumber] = useState("")
+  const [sortField, setSortField] = useState('product_number');
+  const [sortDirection, setSortDirection] = useState('asc');
 
   const handleChange = (event) => {
     console.log(event.target.value)
@@ -17,6 +20,12 @@ function App() {
   const handleClick = (selectedProduct) => {
     setSelectedBrand(selectedProduct.brand_name)
     setSelectedProductNumber(selectedProduct.product_number)
+  }
+
+  const handleSort = (selectedColumn) => {
+    setSortField(selectedColumn)
+    setSortDirection(sortDirection === 'asc' ? 'desc' : 'asc')
+    setSearchResults(orderBy(searchResults, sortField, sortDirection))
   }
 
   useEffect(() => {
@@ -52,6 +61,7 @@ function App() {
       <ProductTable
         products={searchResults}
         handleClick={handleClick}
+        handleSort={handleSort}
       />
     </div>
   )

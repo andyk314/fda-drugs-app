@@ -9,16 +9,16 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import ProductRow from '../ProductRow/ProductRow'
 
-const ProductTable = ({ products, ...restProps }) => {
+const ProductTable = ({ products, handleSort, ...restProps }) => {
   return (
     <TableContainer>
       <Table stickyHeader aria-label='sticky table'>
         <TableHead>
           <TableRow>
-            <TableCell>Product Number</TableCell>
-            <TableCell>Brand Name</TableCell>
-            <TableCell>Dosage Form</TableCell>
-            <TableCell>Conversions</TableCell>
+            <TableCell onClick={() => handleSort('product_number')}>Product Number</TableCell>
+            <TableCell onClick={() => handleSort('brand_name')}>Brand Name</TableCell>
+            <TableCell onClick={() => handleSort('dosage_form')}>Dosage Form</TableCell>
+            <TableCell onClick={() => handleSort('conversions')}>Conversions</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -32,6 +32,7 @@ const ProductTable = ({ products, ...restProps }) => {
 }
 
 ProductTable.propTypes = {
+  handleSort: PropTypes.func,
   products: PropTypes.arrayOf(PropTypes.object)
 }
 
