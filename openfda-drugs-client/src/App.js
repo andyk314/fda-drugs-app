@@ -1,21 +1,70 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
 import './App.css';
+import ProductTable from './ProductTable/ProductTable';
+import SearchBar from './SearchBar/SearchBar';
+import orderBy from "lodash/orderBy";
 
 function App() {
+  const [searchResults, setSearchResults] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedBrand, setSelectedBrand] = useState("")
+  const [selectedProductNumber, setSelectedProductNumber] = useState("")
+  const [sortField, setSortField] = useState('product_number');
+  const [sortDirection, setSortDirection] = useState('asc');
+
+  const handleChange = (event) => {
+    console.log(event.target.value)
+    setSearchTerm(event.target.value)
+  }
+
+  const handleClick = (selectedProduct) => {
+    setSelectedBrand(selectedProduct.brand_name)
+    setSelectedProductNumber(selectedProduct.product_number)
+  }
+
+  const handleSort = (selectedColumn) => {
+    setSortField(selectedColumn)
+    setSortDirection(sortDirection === 'asc' ? 'desc' : 'asc')
+    setSearchResults(orderBy(searchResults, sortField, sortDirection))
+  }
+
+  useEffect(() => {
+    fetch('http://localhost:3001/search_conversions/', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        brand_name: selectedBrand,
+        product_number: selectedProductNumber
+      })
+    })
+  }, [selectedBrand, selectedProductNumber])
+
+  useEffect(() => {
+    fetch(`http://localhost:3001/products?q=${searchTerm}`)
+      .then(res => res.json())
+      .then(
+        (result) => {
+          setSearchResults(result);
+        }
+      )
+  }, [searchTerm, selectedBrand, selectedProductNumber])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <p>Please update this page as you see fit to accomplish the following:</p>
-        <ol className='App-task-list'>
-          <li>Display search results.</li>
-          <li>Add the ability to order search results by brand name (alphabetical), dosage form, and product number.</li>
-          <li>Add the ability to click on a product and store the search conversion.</li>
-          <li>Display the number of conversions next to search results.</li>
-        </ol>
-      </header>
+      <SearchBar
+        searchTerm={searchTerm}
+        handleChange={handleChange}
+      />
+      <ProductTable
+        products={searchResults}
+        handleClick={handleClick}
+        handleSort={handleSort}
+      />
     </div>
-  );
+  )
 }
 
 export default App;

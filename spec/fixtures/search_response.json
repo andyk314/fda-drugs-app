@@ -1,0 +1,141 @@
+{
+  "meta": {
+    "disclaimer": "Do not rely on openFDA to make decisions regarding medical care. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated. We may limit or otherwise restrict your access to the API in line with our Terms of Service.",
+    "terms": "https://open.fda.gov/terms/",
+    "license": "https://open.fda.gov/license/",
+    "last_updated": "2020-10-13",
+    "results": {
+      "skip": 0,
+      "limit": 1,
+      "total": 240
+    }
+  },
+  "results": [
+    {
+      "submissions": [
+        {
+          "submission_class_code_description": "Labeling",
+          "submission_type": "SUPPL",
+          "submission_status_date": "20060703",
+          "submission_class_code": "LABELING",
+          "submission_status": "AP",
+          "submission_number": "2"
+        },
+        {
+          "submission_type": "ORIG",
+          "submission_status_date": "20050718",
+          "submission_status": "AP",
+          "submission_number": "1"
+        },
+        {
+          "submission_class_code_description": "Labeling",
+          "submission_type": "SUPPL",
+          "submission_status_date": "20060302",
+          "submission_class_code": "LABELING",
+          "submission_status": "AP",
+          "submission_number": "1"
+        },
+        {
+          "submission_class_code_description": "Labeling",
+          "submission_type": "SUPPL",
+          "submission_status_date": "20080904",
+          "submission_class_code": "LABELING",
+          "submission_status": "AP",
+          "submission_number": "9"
+        },
+        {
+          "submission_class_code_description": "Labeling",
+          "submission_property_type": [
+            {
+              "id": "7"
+            },
+            {
+              "id": "15"
+            },
+            {
+              "id": "31"
+            }
+          ],
+          "submission_type": "SUPPL",
+          "review_priority": "STANDARD",
+          "submission_status_date": "20160509",
+          "submission_class_code": "LABELING",
+          "submission_status": "AP",
+          "submission_number": "12"
+        },
+        {
+          "submission_class_code_description": "Labeling",
+          "submission_property_type": [
+            {
+              "id": "7"
+            },
+            {
+              "id": "15"
+            },
+            {
+              "id": "31"
+            }
+          ],
+          "submission_type": "SUPPL",
+          "review_priority": "STANDARD",
+          "submission_status_date": "20190722",
+          "submission_class_code": "LABELING",
+          "submission_status": "AP",
+          "submission_number": "13"
+        }
+      ],
+      "application_number": "ANDA077114",
+      "sponsor_name": "PERRIGO PHARMS CO",
+      "products": [
+        {
+          "marketing_status": "Prescription",
+          "route": "ORAL",
+          "reference_standard": "No",
+          "brand_name": "IBUPROFEN",
+          "active_ingredients": [
+            {
+              "strength": "400MG",
+              "name": "IBUPROFEN"
+            }
+          ],
+          "reference_drug": "No",
+          "te_code": "AB",
+          "product_number": "001",
+          "dosage_form": "TABLET"
+        },
+        {
+          "marketing_status": "Prescription",
+          "route": "ORAL",
+          "reference_standard": "No",
+          "brand_name": "IBUPROFEN",
+          "active_ingredients": [
+            {
+              "strength": "800MG",
+              "name": "IBUPROFEN"
+            }
+          ],
+          "reference_drug": "No",
+          "te_code": "AB",
+          "product_number": "003",
+          "dosage_form": "TABLET"
+        },
+        {
+          "marketing_status": "Prescription",
+          "route": "ORAL",
+          "reference_standard": "No",
+          "brand_name": "IBUPROFEN",
+          "active_ingredients": [
+            {
+              "strength": "600MG",
+              "name": "IBUPROFEN"
+            }
+          ],
+          "reference_drug": "No",
+          "te_code": "AB",
+          "product_number": "002",
+          "dosage_form": "TABLET"
+        }
+      ]
+    }
+  ]
+}

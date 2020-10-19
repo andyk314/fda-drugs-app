@@ -1,0 +1,2 @@
+class SearchConversion < ApplicationRecord
+end
